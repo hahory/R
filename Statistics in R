@@ -1,0 +1,8 @@
+R에서 사용하는 함수
+
+평균(mean): mean()
+분산(variance): var()
+표준 편차(standard deviation): sd()
+
+
+
