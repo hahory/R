@@ -1,0 +1,32 @@
+R에서 파일을 읽고 쓰는 방법
+
+# -------- Read File ---------- 
+# 일반 파일 
+source = read.delim("source.txt", header=FALSE, sep=" ") 
+source 
+# csv 파일읽기 
+source_csv = read.csv("mlb-player-stats-Batters.csv") 
+source_csv 
+# 대용량 파일 
+library("data.table") 
+source_csv2 = fread("mlb-player-stats-Batters.csv") 
+source_csv2 
+# 엑셀 파일 읽기 
+install.packages("readxl") 
+library("readxl") 
+read_excel("source.xlsx") 
+
+# -------- Write File ---------- # 
+파일 쓰기 
+write.csv(source, "write.txt") 
+write.csv(source, "write.txt", row.names = FALSE) 
+fwrite(source_csv, "write_csv.csv") 
+# tsv 쓰기 
+install.packages("readr") 
+library("readr") 
+write_csv(source_csv, "write_csv2.csv") 
+# 엑셀 쓰기 
+install.packages("xlsx") 
+library("xlsx") 
+write.xlsx(source_csv, "write.xlsx")
+
