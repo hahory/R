@@ -1,0 +1,28 @@
+dt<-read.csv('C:/BigData/work/R_Project/drinking_water.txt')
+head(dt)
+class(dt)
+#각 필드의 분산구하기
+var(dt)
+#histogram 그래프
+hist(dt$친밀도)
+#공분산
+cov(dt$친밀도,dt$적절성)
+#상관계수:Correlation
+cor(dt$친밀도,dt$적절성)
+#친밀도, 적절성의 피어슨 상관계수
+cor(dt$친밀도,dt$적절성,method = 'pearson')
+#친밀도, 만족도의 피어슨 상관계수
+cor(dt$친밀도,dt$만족도,method = 'pearson')
+#적절성+친밀도, 만족도의 피어슨 상관계수
+cor(dt$적절성+dt$친밀도,dt$만족도,method = 'pearson')
+#친밀도, 적절성의 스피어만 상관계수
+cor(dt$친밀도,dt$적절성,method = 'spearman')
+#친밀도, 만족도의 스피어만 상관계수
+cor(dt$친밀도,dt$만족도,method = 'spearman')
+#적절성+친밀도, 만족도의 스피어만 상관계수
+cor(dt$적절성+dt$친밀도,dt$만족도,method = 'spearman')
+#symnum
+symnum(cor(dt[,1:3]))
+#corrgram 그래프
+corrgram(dt,upper.panel = panel.conf)
+corrgram(dt)
